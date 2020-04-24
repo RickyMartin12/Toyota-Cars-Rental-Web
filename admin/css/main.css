@@ -1,0 +1,288 @@
+#novo_transfer_dados_retorno {
+    display: none;
+}
+
+.line-bord {
+  border: 1px solid RGB(12,12,12);
+}
+
+.title-black-white
+{
+  background: RGB(12,12,12);
+  color: #FFF;
+}
+
+.mylabel {
+  color: #333;
+  background: #FFC107 !important;
+}
+
+#submit_car_form
+{
+  margin-bottom: 0px;
+}
+
+#submit_modelo_form
+{
+  margin-bottom: 0px;
+}
+    
+
+.load {
+  cursor:not-allowed;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  color: RGB(12,12,12);
+  font-size: 48px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@-webkit-keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+.back {
+    background: rgba(0,0,0,.6) center center no-repeat;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 999;
+    cursor: not-allowed;
+}
+
+
+body{padding-top:50px;}
+
+
+
+.panel-default .panel-heading {
+    background-color: #ffb231;
+}
+
+.main-panel>#main-panel-dashboard {
+    display: block;
+}
+
+.main-panel>#main-panel-utilizadores {
+    display: none;
+}
+
+.main-panel>#main-panel-novo-transfer {
+    display: none;
+}
+
+.main-panel>#main-panel-gestao {
+    display: none;
+}
+
+
+#services__modal .modal-content{
+    border:none;
+    border-radius:0px;
+}
+
+/**Bootstrap**/
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.input-group-addon {
+    font-size: 10px;
+}
+
+
+
+
+/**END of Bootstrap**/
+
+
+/** Bootstrap select **/
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+    height: 27px;
+    font-size: 12.5px;
+}
+
+.bootstrap-select.btn-group.disabled, .bootstrap-select.btn-group>.disabled {
+    background-color: #EEE;
+}
+
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+    height: 27px;
+    font-size: 12.5px;
+}
+
+.input-group-addon .addon-label{
+    font-size:13px;
+    font-weight: bold;
+}
+
+label.label-novo-transfer {
+    font-size: 10px;
+    font-weight: 600;
+    color: #333531;
+}
+
+
+/** Table **/
+
+tr[class*='row-hidden'] {
+    display: none;
+}
+
+
+/** Typeahead **/
+
+.input-group .twitter-typeahead:first-child .tt-input, .input-group .twitter-typeahead:first-child .tt-hint {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.twitter-typeahead .tt-input {
+    background-color: #fff!important;
+}
+
+.twitter-typeahead .tt-input[readonly] {
+    background-color: #fff;
+}
+
+.twitter-typeahead .tt-input[disabled], fieldset[disabled] .twitter-typeahead .tt-input {
+    background-color: #eee!important;
+}
+
+
+#example2 tbody tr{
+  background: #fff!important;
+  color: #000!important;
+}
+
+#example3 tbody tr{
+  background: #fff!important;
+  color: #000!important;
+}
+
+#example4 tbody tr{
+  background: #fff!important;
+  color: #000!important;
+}
+
+
+.filter-button{height:34px;}
+td{padding: 4px;}
+table{font-size: 13px;}
+body {padding-top: 50px;}
+#example tr{height:35px;}
+#example thead th{ border-bottom: 1px solid #333;}
+#example tfoot th{ border-top: 1px solid #333;}
+
+
+#example2 tr{height:35px; background: #414042; color: #fff;}
+#example2 thead th{ border-bottom: 1px solid #333;}
+#example2 tfoot th{ border-top: 1px solid #333;}
+
+#example3 tr{height:35px; background: #414042; color: #fff;}
+#example3 thead th{ border-bottom: 1px solid #333;}
+#example3 tfoot th{ border-top: 1px solid #333;}
+
+
+/*Validation*/
+
+.form-group .error-info {
+    color: red;
+    font-size: 11px;
+}
+
+/** Google Maps **/
+#myMapModal .modal-content{
+    border-radius:0px;
+    border:none;
+}
+
+#myMapModal .modal-body{
+    padding:0px;
+}
+
+#myMapModal #map-canvas {
+    height: 500px;
+    width: 100%; 
+}
+
+#accordion .panel-default .panel-heading{
+    background-color: lavender;
+}

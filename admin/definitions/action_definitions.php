@@ -1,0 +1,101 @@
+<?php
+
+
+require_once '../connect.php';
+
+switch ($_POST['action']){
+
+/*OBTER DEFINICOES*/
+case '3':
+$obter_comp=" SELECT * FROM companhia WHERE 1";
+$result = mysqli_query($conn, $obter_comp);
+while($obj = mysqli_fetch_object($result)) {
+$var[] = $obj;}
+echo json_encode($var);
+break;
+
+case '4':
+    	$fields=array('nome','nif','ravt','morada','cod_postal','tel','tlm','email','site');
+    	$query='UPDATE companhia SET ';
+		for($i=1;$i<10;$i++){
+			$index= 'col_'.$i.'_'.$_POST['id'];
+    		$query.= $fields[$i-1].'='."'{$_POST[$index]}'";
+			if($i!=9)
+				$query.=',';
+		}
+		$query.=" WHERE id='{$_POST['id']}'";
+		$result = mysqli_query($conn,$query);
+		if ($result)
+			echo 1;
+		else 
+			echo 0;
+break;
+
+
+case '5':
+$obter_comp=" SELECT nome_carro FROM carros ORDER BY nome_carro ASC";
+
+$var = "";
+
+$result = mysqli_query($conn, $obter_comp);
+while($obj = mysqli_fetch_object($result)) {
+$var[] = $obj;}
+echo json_encode($var);
+
+break;
+
+case '6':
+$obter_comp=" SELECT nome FROM modelo ORDER BY nome ASC";
+
+$var = "";
+
+$result = mysqli_query($conn, $obter_comp);
+while($obj = mysqli_fetch_object($result)) {
+$var[] = $obj;}
+echo json_encode($var);
+break;
+
+case '7':
+$obter_comp=" SELECT id FROM modelo ORDER BY id ASC";
+
+$var = "";
+
+$result = mysqli_query($conn, $obter_comp);
+while($obj = mysqli_fetch_object($result)) {
+$var[] = $obj;}
+echo json_encode($var);
+break;
+
+case '8':
+$obter_comp=" SELECT nome FROM admins ORDER BY nome_utilizador ASC";
+
+$var = "";
+
+$result = mysqli_query($conn, $obter_comp);
+while($obj = mysqli_fetch_object($result)) {
+$var[] = $obj;}
+echo json_encode($var);
+break;
+
+case '9':
+$obter_comp=" SELECT titulo FROM comentarios ORDER BY titulo ASC";
+
+$var = "";
+
+$result = mysqli_query($conn, $obter_comp);
+while($obj = mysqli_fetch_object($result)) {
+$var[] = $obj;}
+echo json_encode($var);
+break;
+
+}
+
+
+
+
+
+
+mysqli_close($conn);
+?>
+
+

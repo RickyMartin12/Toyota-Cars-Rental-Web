@@ -1,0 +1,211 @@
+
+
+body{
+    padding-top: 70px;
+    min-height: 100vh;
+    background-image: url("/gestao/images/fundo.jpg");
+}
+
+.panel-title
+{
+    margin-top: 10px;
+}
+
+.blink {
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: blink;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-direction: normal;
+    -moz-animation-duration: 5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-name: blink;
+    -moz-animation-timing-function: linear;
+    animation-direction: normal;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-timing-function: linear;
+}
+
+
+
+.navbar
+{
+    margin-bottom: 8px;
+}
+
+.filter-button{height:34px;}
+
+.btn-sm {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+        td{padding: 4px;}
+
+        table{font-size: 13px;}
+
+        body {padding-top: 50px;}
+
+        #example tr{height:35px;}
+
+        #example thead th{ border-bottom: 1px solid #333;}
+
+        #example tfoot th{ border-top: 1px solid #333;}
+
+
+
+
+
+.text-orange
+
+{
+
+    color: #ffb231!important;
+
+}
+
+
+
+.text-white
+
+{
+
+    color: #fff!important;
+
+}
+
+
+
+
+
+
+
+.navbar-inverse {
+
+    background-color: #000!important;
+
+    border: 0px;
+
+    border-radius: 0px;
+
+}
+
+
+
+.panel.panel-default.my_black
+
+{
+
+    background-color: #414042!important;
+
+    color: #fff;
+
+    border-radius: 0px!important;
+
+
+
+}
+
+
+
+
+
+.logo-nav
+
+{
+
+    position: absolute;
+
+    margin-top: 0px;
+
+    left: calc(50% - 100px);
+
+}
+
+
+
+.panel-default.my_black {
+    background-color: #000!important;
+    color: #fff;
+    border-radius: 0px!important;
+}
+span#ct {
+    margin-left: calc(50% - 100px);
+    font-size: 21px;
+    position: relative;
+    bottom: -9px;
+}
+.logo-img
+{
+    width: 140px;
+    position: absolute;
+    float:right;
+    left: calc(95% - 90px);
+    top: 4px;
+}
+
+@media (max-width: 400px)
+{
+  .logo-img
+{
+    position: relative;
+    float:left;
+    left:0px;
+  }
+  
+  span#ct {
+    margin-left: calc(50% - 50px);
+    font-size: 14px;
+}
+
+  
+  
+}
+.caret {
+    margin-top: -24px;
+    float: right;
+    color: #fff;
+}
+
+
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #fff;
+    background-color: #414042!important;
+}
+
+
+ul.dropdown-menu {
+    background: #414042;
+}
+
+
+
+.navbar-inverse .navbar-nav>li>a
+{
+    color: #fff;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    text-decoration: none;
+    background-color: #414042;
+    font-weight: bold;
+}
+
+.input-group .form-control {
+    text-align: left;
+}
+
+
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+

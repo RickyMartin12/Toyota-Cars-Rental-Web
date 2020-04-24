@@ -1,0 +1,421 @@
+
+
+
+th, td { white-space: nowrap; }
+
+a {
+    cursor: pointer;
+    color: #3174c7;
+    text-decoration: none;
+}
+
+tfoot input {
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:#ccc!important;
+opacity:1!important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ccc!important;
+opacity:1!important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:#ccc!important;
+opacity:1!important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color:#ccc!important;
+opacity:1!important;
+}
+
+.number-right{text-align:right;}
+.table-condensed{background-color:#FFF;}
+.table-condensed tr {background-color:#FFF; color:#333;} 
+tr.show9{background: #FFF!important;}
+tr.show9 td.sorting_1{background: #FFF!important;}
+
+
+/* tabela */
+
+.dataTables_scrollHead {
+    background: #333!important;
+    color: #fff!important;
+}
+
+/* formulario */
+
+.panel-info>.panel-heading {
+    color: #31708f;
+    background-color: #FFB231;
+    border: none;
+}
+
+
+.ui-widget-header .ui-icon {
+    background-image: url(/registries/images/ui-icons_222222_256x240.png)
+}
+
+
+.panel-title {
+    color: #333!important;
+}
+
+tr.show9 {
+    background: none!important;
+}
+
+#example tr {
+    background: #414042;
+    color: #fff;
+}
+
+#example2 tr {
+    background: #414042;
+    color: #fff;
+}
+
+#example3 tr {
+    background: #414042;
+    color: #fff;
+}
+
+#example4 tr {
+    background: #414042;
+    color: #fff;
+}
+
+
+table.dataTable tbody tr {color: #000!important;}
+tfoot input {padding: 3px; box-sizing: border-box;color: #000;}
+
+.modal-title{color:#FFF;}
+.dt-button-collection{width:90%!important;left: 5%!important;}
+.buttons-columnVisibility{ padding: 7px 5px 5px 5px!important; margin:2px 2px;float: left!important;}
+.totals{font-size:11px;}
+.number-right{font-size:12px;}
+.id_gestao{margin: 3px 0px 2px 0px;}
+.modal-lg {width: 95%;}
+
+.buttons-colvis{color: #fff!important; background-color: #5bc0de!important;background:#5bc0de!important;border-color: #46b8da!important;padding: 9px 12px!important;}
+
+.dataTables_length{margin-top:8px;}
+
+a.dt-button.buttons-excel.buttons-html5, a.dt-button.buttons-pdf.buttons-html5, a.dt-button.buttons-csv.buttons-html5 {
+    background: #fff;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+}
+
+.dt-button2-collection{width:90%!important;left: 5%!important;}
+
+
+a.dt-button2{
+   overflow: visible;
+    border-radius: 4px;
+}
+
+
+
+a.dt-button2.buttons-excel.buttons-html5, a.dt-button2.buttons-pdf.buttons-html5, a.dt-button2.buttons-csv.buttons-html5 {
+    background: #fff;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+}
+
+a.dt-button2{
+   overflow: visible;
+    border-radius: 4px;
+}
+
+
+
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: 0px!important;
+    background: #fff url(/registries/images/26-128.png)!important;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    left: 2px;
+    background: #fff url(/registries/images/26-128.png);
+    background-size: 100%;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 2px;
+    background: #fff url(/registries/images/27-128.png);
+    background-size: 100%;
+}
+
+
+img.ui-datepicker-trigger {
+    margin-left: 150px;
+    margin-top: -60px;
+}
+
+div.DTE_Bubble div.DTE_Bubble_Liner
+{
+    left: 12px!important;
+}
+
+
+tr#filter_col4 {
+    color: #000;
+    background: #fff;
+}
+
+
+.space_columns
+{    
+    padding: 10px;
+    background: #fff!important;
+}
+
+
+form.filter-form {
+    color: #000;
+}
+
+table#example {
+    overflow-x: auto;
+}
+
+
+table#example2 {
+    overflow-x: auto;
+}
+
+table#example3 {
+    overflow-x: auto;
+}
+
+table#example4 {
+    overflow-x: auto;
+}
+
+div.dt-buttons {
+    position: relative;
+    float: right;
+}
+
+button.dt-button, div.dt-button, a.dt-button {
+    background-color: none!important;
+  }
+
+
+button.btn.btn-success {
+    color: #fff;
+    background: #5cb85c!important;
+    border-color: #4cae4c!important;
+}
+
+
+
+button.btn.btn-danger {
+    color: #fff;
+    background: #d9534f!important;
+    border-color: #d43f3a!important;
+}
+
+a.dt-button.buttons-columnVisibility.active {
+    background: #dadada!important;
+}
+
+
+a.dt-button.buttons-columnVisibility {
+    background: #f0ad4e!important;
+}
+
+
+.DTE_Header, .DTE_Footer {
+    background: #333!important;
+    color: #fff;
+    text-align: center;
+}
+
+.DTE_Form_Buttons {
+    color: #000;
+}
+
+
+div.DTED_Lightbox_Close {
+    position: absolute;
+    top: 15px!important;
+    right: 10px!important;
+    height: 22px!important;
+    border: 0px!important;
+    background-color: transparent!important;
+    box-shadow: 0px!important;
+}
+
+
+div.DTED_Lightbox_Close:after {
+    font-size: 30px!important;
+}
+
+
+div.DTED_Lightbox_Wrapper div.DTED_Lightbox_Container div.DTED_Lightbox_Content_Wrapper div.DTED_Lightbox_Content div.DTED_Lightbox_Close:hover {
+    background-color: transparent;
+    box-shadow: 0px!important;}
+
+.btn-info {margin-left: 5px;}
+
+.new-h3{text-align:center; font-size:21px; padding: 10px;}
+
+.ui-state-focus{backgroung:red!important;}
+
+#example_filter
+{
+  display: none!important;
+  text-align: center;
+}
+
+#example2_filter
+{
+  display: none!important;
+  text-align: center;
+}
+
+#example3_filter
+{
+  display: none!important;
+  text-align: center;
+}
+
+#example4_filter
+{
+  display: none!important;
+  text-align: center;
+}
+
+
+#example tbody tr{
+    background: #fff!important;
+    color: #000!important;
+}
+
+#example2 tbody tr{
+    background: #fff!important;
+    color: #000!important;
+}
+
+#example3 tbody tr{
+    background: #fff!important;
+    color: #000!important;
+}
+
+#example4 tbody tr{
+    background: #fff!important;
+    color: #000!important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    display: table-cell;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+
+
+
+.dt-button.buttons-excel.buttons-html5, a.dt-button.buttons-pdf.buttons-html5, a.dt-button.buttons-csv.buttons-html5, a.dt-button.buttons-print, a.dt-button.buttons-print:hover, a.dt-button.buttons-pdf-format, a.dt-button.buttons-pdf-format:hover {
+    background: #fff;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+}
+
+a.dt-button {
+    overflow: visible;
+    border-radius: 4px;
+}
+
+.buttons-print
+{
+    background: #fff;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 6px 12px!important;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
+}
+
+    

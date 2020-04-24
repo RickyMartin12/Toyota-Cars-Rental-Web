@@ -1,0 +1,171 @@
+#link_button_trans {
+    padding-top: 25px;
+}
+
+
+.panel-heading.m_black {
+    background-color: #414042!important;
+    color: #fff;
+    font-size: 13pt;
+}
+
+.panel-heading.m_orange {
+    background-color: #FBB040!important;
+    color: #fff;
+    font-size: 13pt;
+}
+
+.panel-heading {
+    padding-bottom: 25px;
+}
+
+
+
+#link_button_site {
+    padding-top: 10px;
+}
+
+
+#info-suporte {
+    width: 100%;
+}
+
+
+.m_client
+{
+    margin-left: 15px; 
+    margin-right: 15px; 
+    margin-top: 20px;
+}
+
+
+
+body {
+    padding-right: 0px!important;
+    margin-left: 0px;
+    margin-right: 1px;
+}
+button.btn.btn-lg {
+    margin-left: calc(100% - 95px);
+    font-size: 13px!important;
+    padding: 10px!important;
+    margin-top: -22px;
+    font-weight: bold;
+    border-radius: 0px;
+}
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+    padding: 15px!important;
+    font-size: 15px!important;
+}
+
+#example thead th {
+    padding-right: 50px!important;
+    font-size: 16px!important;
+}
+
+div#Modalko {
+    z-index: 9999!important;
+    top: 20px;
+}
+div#Modalok {
+    z-index: 9999!important;
+    top: 20px;
+}
+button.btn-sm.btn.btn-danger {
+    height: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+.form-control, .input-group-addon
+{
+  border-radius: 0px!important;
+}
+.btn {
+    border-radius: 0px!important;
+}
+
+.panel.panel-default {
+    border-radius: 0px!important;
+}
+
+div#example_filter {
+    display: none!important;
+}
+
+div#example2_filter {
+    display: none!important;
+}
+
+div#example3_filter {
+    display: none!important;
+}
+
+div#example4_filter {
+    display: none!important;
+}
+
+div#link_button_site
+{
+    
+    margin-top: 15px;
+}
+.select2-container--default .select2-selection--single {
+    border-radius: 0px!important;
+    height: 34px!important;
+}
+
+span.select2 {
+    width: 100%!important;
+}
+
+
+#chart-container {
+				width: 640px;
+				height: auto;
+			}
+
+
+.table {
+    font-size: 16px;
+}
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border: 1px solid #ddd!important;
+}
+
+
+.centered_p
+{
+    text-align: center;
+    font-size: 18px;
+    height: 50px;
+}
+
+.factor {
+    text-align: center;
+}
+
+
+#example2 thead th {
+    padding-right: 50px!important;
+    font-size: 16px!important;
+}
+
+#example3 thead th {
+    padding-right: 50px!important;
+    font-size: 16px!important;
+}
+
+#example4 thead th {
+    padding-right: 50px!important;
+    font-size: 16px!important;
+}
+
+
