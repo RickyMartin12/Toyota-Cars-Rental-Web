@@ -158,7 +158,7 @@ switch ($_POST['action']){
         $exibe = mysqli_fetch_assoc($sql);
         $id_username = $exibe['id']; 
 
-        $sql =" INSERT INTO comentarios (titulo, nome_pessoa, data, descricao, activo) VALUES ('$titulo', $id_username, $data_comentario, 'descricao', 0)";
+        $sql =" INSERT INTO comentarios (titulo, nome_pessoa, data, descricao, activo) VALUES ('$titulo', $id_username, $data_comentario, $descricao, 0)";
         $result = mysqli_query($conn,$sql);
           if ($result) {
             $response = 1; 
