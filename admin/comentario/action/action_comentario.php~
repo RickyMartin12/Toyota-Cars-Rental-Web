@@ -141,7 +141,7 @@ switch ($_POST['action']){
     {
       $v = "";
 
-      $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome ASC";
+      $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
       $result = mysqli_query($conn, $obter_comp);
       while($obj = mysqli_fetch_object($result)) 
       {
