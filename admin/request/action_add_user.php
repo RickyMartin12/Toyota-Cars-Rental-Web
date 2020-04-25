@@ -103,7 +103,7 @@ if (!$err)
 
   $v = "";
 
-  $obter_comp=" SELECT nome FROM admins ORDER BY nome ASC";
+  $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
   $result = mysqli_query($conn, $obter_comp);
   while($obj = mysqli_fetch_object($result)) 
   {
@@ -114,7 +114,7 @@ if (!$err)
 $array = json_decode(json_encode($v), True);
 
 
-$key = array_search($nome_utilizador, array_column($array, 'nome'));
+$key = array_search($nome_utilizador, array_column($array, 'nome_utilizador'));
 if (is_numeric($key))
 {
   echo 100;

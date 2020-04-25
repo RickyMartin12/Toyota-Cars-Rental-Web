@@ -122,7 +122,7 @@ if (is_numeric($key))
 }
 else
 {
-  $sql =" INSERT INTO admins (nome, pass, tipo, email, privilegios) VALUES ('$nome_utilizador', MD5('".$pass."'), '$tipo_utilizador', '$email', '$privilegios')";
+  $sql =" INSERT INTO admins (nome_utilizador, pass, tipo, email, privilegios) VALUES ('$nome_utilizador', MD5('".$pass."'), '$tipo_utilizador', '$email', '$privilegios')";
 
 $result = mysqli_query($conn,$sql);
   if ($result) {
