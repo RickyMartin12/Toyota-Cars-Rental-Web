@@ -188,7 +188,7 @@ switch ($_POST['action']){
 
     case '6':
 
-    $obter_comp=" SELECT comentarios.titulo, admins.nome, comentarios.data, comentarios.descricao FROM comentarios INNER JOIN admins ON comentarios.nome_pessoa = admins.id WHERE comentarios.activo = 1";
+    $obter_comp=" SELECT comentarios.titulo, admins.nome_utilizador, comentarios.data, comentarios.descricao FROM comentarios INNER JOIN admins ON comentarios.nome_pessoa = admins.id WHERE comentarios.activo = 1";
     $result = mysqli_query($conn, $obter_comp);
     while($obj = mysqli_fetch_object($result)) {
     $var[] = $obj;}

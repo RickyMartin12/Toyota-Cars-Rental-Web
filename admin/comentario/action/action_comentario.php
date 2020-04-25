@@ -65,7 +65,7 @@ switch ($_POST['action']){
     $var = "";
     
      
-      $obter_clientes=" SELECT id FROM admins WHERE nome = '$nome' LIMIT 1";
+      $obter_clientes=" SELECT id FROM admins WHERE nome_utilizador = '$nome' LIMIT 1";
         $result = mysqli_query($conn, $obter_clientes);
         while($obj = mysqli_fetch_object($result)) 
         {
@@ -141,7 +141,7 @@ switch ($_POST['action']){
     {
       $v = "";
 
-      $obter_comp=" SELECT nome FROM admins ORDER BY nome ASC";
+      $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome ASC";
       $result = mysqli_query($conn, $obter_comp);
       while($obj = mysqli_fetch_object($result)) 
       {
@@ -153,7 +153,7 @@ switch ($_POST['action']){
       if (is_numeric($key))
       {
 
-        $sql = mysqli_query($conn, "SELECT id FROM admins WHERE nome='$username'");
+        $sql = mysqli_query($conn, "SELECT id FROM admins WHERE nome_utilizador='$username'");
 
         $exibe = mysqli_fetch_assoc($sql);
         $id_username = $exibe['id']; 
