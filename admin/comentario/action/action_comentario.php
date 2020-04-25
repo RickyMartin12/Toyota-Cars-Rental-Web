@@ -141,7 +141,7 @@ switch ($_POST['action']){
     {
       $v = "";
 
-      $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome ASC";
+      $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
       $result = mysqli_query($conn, $obter_comp);
       while($obj = mysqli_fetch_object($result)) 
       {
@@ -149,7 +149,7 @@ switch ($_POST['action']){
       }
 
       $array = json_decode(json_encode($v), True);
-      $key = array_search($username, array_column($array, 'nome'));
+      $key = array_search($username, array_column($array, 'nome_utilizador'));
       if (is_numeric($key))
       {
 
