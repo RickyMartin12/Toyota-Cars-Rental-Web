@@ -71,7 +71,7 @@ GetCarroNome(); GetModeloNome(); GetIDModelo(); GetIDUsername(); GetTituloComent
 arr_id_username = JSON.parse(localStorage.getItem("Username"));
         opt5='<option selected value="">Username</option>';   
         for (i=0;i<arr_id_username.length;i++){
-          opt5 +='<option value="'+arr_id_username[i].nome_utilizador+'">'+arr_id_username[i].nome_utilizador+'</option>';
+          opt5 +='<option value="'+arr_id_username[i].nome+'">'+arr_id_username[i].nome+'</option>';
         }
         $('#username_id_value').html(opt5).select2();
 

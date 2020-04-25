@@ -67,7 +67,7 @@ echo json_encode($var);
 break;
 
 case '8':
-$obter_comp=" SELECT nome FROM admins ORDER BY nome_utilizador ASC";
+$obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
 
 $var = "";
 
