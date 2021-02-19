@@ -184,14 +184,14 @@ $("#com_som").on('click', function(e)
  	var into = $('#intro');
 		setTimeout(function(){ box.toggleClass('hidden'); into.toggleClass('into_display_block');   }, 2500);
 		
-		$(document).ready(function() 
+		/*$(document).ready(function() 
 		{
  			var url = "images/sd.svg?rnd="+Math.random();
 			 $('#mainLogo').attr("src",url);
 			 var url2 = "images/toyota.svg?rnd="+Math.random();
 			 $('#logoToyota').attr("src",url2);
 			 
-		 });
+		 });*/
 		 
 		 setTimeout(function() {$(".back").fadeOut(); }, 8000);
 		 

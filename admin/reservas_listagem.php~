@@ -178,7 +178,7 @@ function Lista_reserva()
         { data: "tstp", className: "hidden"}
       ],
       "columnDefs": [
-         {"orderData": [9], "targets": [5]}
+         {"orderData": [10], "targets": [5]}
       ],
       
       "rowCallback": function(row, data, index){

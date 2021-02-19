@@ -310,7 +310,7 @@
 	<div id="reserva" class="features">
 		<div class="container"> 
 				<h3 class="agileits-title">Reserva de Carros<span class="w3lshr-line"> </span></h3>
-<input type="hidden" id="us_id" value="<?php echo $_COOKIE['usern']; ?>" />
+<input type="hidden" id="us_id" value="<?php echo $_SESSION['usern']; ?>" />
 				<div class="col-md-12 w3features-left">
 					
 					<div class="w3features-grids col-md-6">

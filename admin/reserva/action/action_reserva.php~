@@ -275,7 +275,7 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
         $body_c .= "--".$separator.$eol;
         $body_c .= "Content-Type: text/html; charset=\"UTF-8\"".$eol;
         $body_c .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-        $body_c .= $info_client.$eol;
+        $body_c .= $info_server.$eol;
         $body_c .= "--".$separator.$eol;
         $body_c .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; 
         $body_c .= "Content-Transfer-Encoding: base64".$eol;
@@ -635,7 +635,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/mpdf/mpdf.php';
         $body_c .= "--".$separator.$eol;
         $body_c .= "Content-Type: text/html; charset=\"UTF-8\"".$eol;
         $body_c .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-        $body_c .= $info_client.$eol;
+        $body_c .= $info_server.$eol;
         $body_c .= "--".$separator.$eol;
         $body_c .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; 
         $body_c .= "Content-Transfer-Encoding: base64".$eol;
