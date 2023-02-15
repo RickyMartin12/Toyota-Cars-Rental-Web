@@ -34,9 +34,6 @@ break;
 
 case '5':
 $obter_comp=" SELECT nome_carro FROM carros ORDER BY nome_carro ASC";
-
-$var = "";
-
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) {
 $var[] = $obj;}
@@ -46,9 +43,6 @@ break;
 
 case '6':
 $obter_comp=" SELECT nome FROM modelo ORDER BY nome ASC";
-
-$var = "";
-
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) {
 $var[] = $obj;}
@@ -57,9 +51,6 @@ break;
 
 case '7':
 $obter_comp=" SELECT id FROM modelo ORDER BY id ASC";
-
-$var = "";
-
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) {
 $var[] = $obj;}
@@ -69,8 +60,6 @@ break;
 case '8':
 $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
 
-$var = "";
-
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) {
 $var[] = $obj;}
@@ -79,9 +68,6 @@ break;
 
 case '9':
 $obter_comp=" SELECT titulo FROM comentarios ORDER BY titulo ASC";
-
-$var = "";
-
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) {
 $var[] = $obj;}
