@@ -9,6 +9,9 @@ $conn = mysqli_connect($servername, $username, $password, $dbname, $port);
 if (!$conn) {
     die("Erro ao ligar DB" . mysqli_connect_error());
 }
-
+else
+{
+    echo "success";
+}
 
 ?>
