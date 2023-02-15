@@ -83,15 +83,16 @@ $mail = new PHPMailer(true);
     $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
             $mail->Port= '587';
 
-    $mail->From = $email; // The FROM field, the address sending the email 
+    $mail->From = 'ricardopeleira16@gmail.com'; // The FROM field, the address sending the email 
     $mail->FromName = 'Pedido de Informacoes'; // The NAME field which will be displayed on arrival by the email client
-    $mail->addAddress($to);     // Recipient's email address and optionally a name to identify him
+    $mail->addAddress($email);     // Recipient's email address and optionally a name to identify him
     $mail->isHTML(true);
 
 $mail->Subject = "Pedido de Informacoes";
 $mail->Body = $email_body_supplier;
 $mail->send();
 
+/*
 
 $mail_server = new PHPMailer(true);
 
@@ -112,6 +113,7 @@ $mail_server->Subject = "Pedido de Informações - Cliente";
 $mail_server->Body = $email_body_client;
 $mail_server->send();
 
+*/
 }
 
 
