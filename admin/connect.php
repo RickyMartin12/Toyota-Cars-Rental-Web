@@ -14,7 +14,7 @@ if (!$conn) {
 
 
 
-header('Access-Control-Allow-Methods: POST');
+//header('Access-Control-Allow-Methods: POST');
 
 
 ?>
