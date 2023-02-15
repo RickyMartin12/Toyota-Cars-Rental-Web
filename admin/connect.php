@@ -2,10 +2,10 @@
 
 date_default_timezone_set('Europe/Lisbon');//or change to whatever timezone you want
 
-$servername = "localhost";
+$servername = "containers-us-west-193.railway.app";
 $username = "root";
-$password = "root";
-$dbname = "carros";
+$password = "wyGJjUpFOoD8FRzcWEk2";
+$dbname = "railway";
 
 
 
