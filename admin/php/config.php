@@ -4,7 +4,7 @@
 require_once '../connect.php';
 
 // Enable error reporting for debugging (remove for production)
-error_reporting(E_ALL);
+error_reporting(E_ERROR | E_PARSE);
 ini_set('display_errors', '1');
 
 
