@@ -78,7 +78,7 @@ body a:focus {
 
 /*-- banner --*/ 
 .w3ls-banner{ 
-	background:url(/carros_toyota_reserva/images/teste1.png)no-repeat center bottom;
+	background:url(/images/teste1.png)no-repeat center bottom;
 	-webkit-background-size:cover;
 	-moz-background-size:cover; 
 	background-size:cover;
