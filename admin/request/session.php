@@ -8,6 +8,8 @@ require_once 'connect.php';
 
 session_start();
 
+var_dump($_COOKIE);
+
 if(!isset($_COOKIE['usern'])) {
     header("Location:login.php");
 }
