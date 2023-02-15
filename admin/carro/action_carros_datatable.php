@@ -17,7 +17,6 @@ DataTables\Database\Result;
         $r=$db->sql($RAW_SQL_QUERY)->fetchAll();
 
         $arr=array("data"=>$r,"options"=>'',"files"=>'');//DATATABLE CLIENT SIDE PARSES
-        header("Content-type: application/json");
         echo json_encode($arr);
 
 
