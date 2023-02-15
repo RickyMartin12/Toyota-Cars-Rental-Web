@@ -6,7 +6,7 @@
 require_once 'connect.php';
 
 
-session_start();
+//session_start();
 
 if(!isset($_COOKIE['usern'])) {
     header("Location:login.php");
