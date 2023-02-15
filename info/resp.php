@@ -54,7 +54,7 @@ if ($error_message == '')
 
 echo 0;
 
-$to = 'r.peleira@hotmail.com';
+$to = 'ricardopeleira16@gmail.com';
 
 $email_body_supplier =
 "<div style='width:95%; margin-left:2.5%;'>
@@ -92,7 +92,7 @@ $mail->Subject = "Pedido de Informacoes";
 $mail->Body = $email_body_supplier;
 $mail->send();
 
-/*
+
 $mail_server = new PHPMailer(true);
 
     $mail_server->isSMTP();  // Set mailer to use SMTP
@@ -111,7 +111,7 @@ $mail_server = new PHPMailer(true);
 $mail_server->Subject = "Pedido de Informações - Cliente";
 $mail_server->Body = $email_body_client;
 $mail_server->send();
-*/
+
 }
 
 
