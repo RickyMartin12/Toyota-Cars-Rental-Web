@@ -2,8 +2,9 @@
 
 <?php
  
+// DataTables PHP library
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
+include $_SERVER['DOCUMENT_ROOT'] . "/admin/php/DataTables.php";
  
 use
 DataTables\Database,
