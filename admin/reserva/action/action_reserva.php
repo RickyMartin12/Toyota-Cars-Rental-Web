@@ -267,16 +267,16 @@ $attachment = $pdf->Output($filename,'S');
 
         $mail = new PHPMailer(true);
         $mail->CharSet = 'UTF-8';
-            $mail->isSMTP();  // Set mailer to use SMTP
-            $mail->Host = 'smtp.mailgun.org';  // Specify mailgun SMTP servers
-            $mail->SMTPAuth = true; // Enable SMTP authentication
-            $mail->Username = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // SMTP username from https://mailgun.com/cp/domains
-            $mail->Password = '2d14e569b59a0eabd9f3617002be0dda-73e57fef-1b7ca089'; // SMTP password from https://mailgun.com/cp/domains
-            $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
-                    $mail->Port= '587';
-
-            $mail->From = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // The FROM field, the address sending the email 
-            $mail->FromName = "Detalhes da Reserva número ".$id; // The NAME field which will be displayed on arrival by the email client
+        $mail->isSMTP();  // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify mailgun SMTP servers
+        $mail->SMTPAuth = true; // Enable SMTP authentication
+        $mail->Username = 'ricardopeleira16@gmail.com'; // SMTP username from https://mailgun.com/cp/domains
+        $mail->Password = 'npgnxhymkcxeoobc'; // SMTP password from https://mailgun.com/cp/domains
+        $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+                $mail->Port= '587';
+    
+        $mail->From = 'ricardopeleira16@gmail.com'; // The FROM field, the address sending the email 
+        $mail->FromName = "Detalhes da Reserva número ".$id; // The NAME field which will be displayed on arrival by the email client
             $mail->addAddress($email);     // Recipient's email address and optionally a name to identify him
             $mail->isHTML(true);
 
@@ -629,16 +629,16 @@ $attachment = $pdf->Output($filename,'S');
 
         $mail = new PHPMailer(true);
         $mail->CharSet = 'UTF-8';
-            $mail->isSMTP();  // Set mailer to use SMTP
-            $mail->Host = 'smtp.mailgun.org';  // Specify mailgun SMTP servers
-            $mail->SMTPAuth = true; // Enable SMTP authentication
-            $mail->Username = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // SMTP username from https://mailgun.com/cp/domains
-            $mail->Password = '2d14e569b59a0eabd9f3617002be0dda-73e57fef-1b7ca089'; // SMTP password from https://mailgun.com/cp/domains
-            $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
-                    $mail->Port= '587';
-
-            $mail->From = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // The FROM field, the address sending the email 
-            $mail->FromName = "Detalhes da Reserva número ".$last_id; // The NAME field which will be displayed on arrival by the email client
+        $mail->isSMTP();  // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify mailgun SMTP servers
+        $mail->SMTPAuth = true; // Enable SMTP authentication
+        $mail->Username = 'ricardopeleira16@gmail.com'; // SMTP username from https://mailgun.com/cp/domains
+        $mail->Password = 'npgnxhymkcxeoobc'; // SMTP password from https://mailgun.com/cp/domains
+        $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+                $mail->Port= '587';
+    
+        $mail->From = 'ricardopeleira16@gmail.com'; // The FROM field, the address sending the email 
+        $mail->FromName = "Detalhes da Reserva número ".$last_id; // The NAME field which will be displayed on arrival by the email client
             $mail->addAddress($email);     // Recipient's email address and optionally a name to identify him
             $mail->isHTML(true);
 
