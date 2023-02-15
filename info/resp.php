@@ -92,6 +92,7 @@ $mail->Subject = "Pedido de Informacoes";
 $mail->Body = $email_body_supplier;
 $mail->send();
 
+/*
 $mail_server = new PHPMailer(true);
 
     $mail_server->isSMTP();  // Set mailer to use SMTP
@@ -110,7 +111,7 @@ $mail_server = new PHPMailer(true);
 $mail_server->Subject = "Pedido de Informações - Cliente";
 $mail_server->Body = $email_body_client;
 $mail_server->send();
-
+*/
 }
 
 
