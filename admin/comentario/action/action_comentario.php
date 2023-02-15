@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/admin/connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 
 
@@ -139,9 +139,7 @@ switch ($_POST['action']){
 
     if (!$err)
     {
-      $v = "";
-
-      $obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
+      $obter_comp=" SELECT nome FROM admins ORDER BY nome ASC";
       $result = mysqli_query($conn, $obter_comp);
       while($obj = mysqli_fetch_object($result)) 
       {
@@ -149,11 +147,11 @@ switch ($_POST['action']){
       }
 
       $array = json_decode(json_encode($v), True);
-      $key = array_search($username, array_column($array, 'nome_utilizador'));
+      $key = array_search($username, array_column($array, 'nome'));
       if (is_numeric($key))
       {
 
-        $sql = mysqli_query($conn, "SELECT id FROM admins WHERE nome_utilizador='$username'");
+        $sql = mysqli_query($conn, "SELECT id FROM admins WHERE nome='$username'");
 
         $exibe = mysqli_fetch_assoc($sql);
         $id_username = $exibe['id']; 
@@ -188,7 +186,7 @@ switch ($_POST['action']){
 
     case '6':
 
-    $obter_comp=" SELECT comentarios.titulo, admins.nome_utilizador, comentarios.data, comentarios.descricao FROM comentarios INNER JOIN admins ON comentarios.nome_pessoa = admins.id WHERE comentarios.activo = 1";
+    $obter_comp=" SELECT comentarios.titulo, admins.nome, comentarios.data, comentarios.descricao FROM comentarios INNER JOIN admins ON comentarios.nome_pessoa = admins.id WHERE comentarios.activo = 1";
     $result = mysqli_query($conn, $obter_comp);
     while($obj = mysqli_fetch_object($result)) {
     $var[] = $obj;}

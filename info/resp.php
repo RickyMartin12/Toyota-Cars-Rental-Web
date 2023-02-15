@@ -1,6 +1,12 @@
 <?php
 
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require_once $_SERVER['DOCUMENT_ROOT'] .  "/PHPmailer/vendor/autoload.php";
+
 
 $error_message = '';
 
@@ -50,14 +56,6 @@ echo 0;
 
 $to = 'r.peleira@hotmail.com';
 
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From:' .$to. "\r\n";
-
-$email_subject = "Pedido de Informações";
-
 $email_body_supplier =
 "<div style='width:95%; margin-left:2.5%;'>
 <h4>Foram pedidas as seguintes informações (pt-PT):</h4>
@@ -75,12 +73,43 @@ $email_body_client = "<div style='width:95%; margin-left:2.5%;'>
 <br>Obrigado $nome, Toyota Rental Cars Lda.
 </div>";
 
+$mail = new PHPMailer(true);
 
+    $mail->isSMTP();  // Set mailer to use SMTP
+    $mail->Host = 'smtp.mailgun.org';  // Specify mailgun SMTP servers
+    $mail->SMTPAuth = true; // Enable SMTP authentication
+    $mail->Username = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // SMTP username from https://mailgun.com/cp/domains
+    $mail->Password = '2d14e569b59a0eabd9f3617002be0dda-73e57fef-1b7ca089'; // SMTP password from https://mailgun.com/cp/domains
+    $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+            $mail->Port= '587';
 
-mail($to,$email_subject,$email_body_supplier,$headers);
-mail($email,$email_subject,$email_body_client,$headers);
+    $mail->From = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // The FROM field, the address sending the email 
+    $mail->FromName = 'Pedido de Informacoes'; // The NAME field which will be displayed on arrival by the email client
+    $mail->addAddress($to);     // Recipient's email address and optionally a name to identify him
+    $mail->isHTML(true);
 
+$mail->Subject = "Pedido de Informacoes";
+$mail->Body = $email_body_supplier;
+$mail->send();
 
+$mail_server = new PHPMailer(true);
+
+    $mail_server->isSMTP();  // Set mailer to use SMTP
+    $mail_server->Host = 'smtp.mailgun.org';  // Specify mailgun SMTP servers
+    $mail_server->SMTPAuth = true; // Enable SMTP authentication
+    $mail_server->Username = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // SMTP username from https://mailgun.com/cp/domains
+    $mail_server->Password = '2d14e569b59a0eabd9f3617002be0dda-73e57fef-1b7ca089'; // SMTP password from https://mailgun.com/cp/domains
+    $mail_server->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+            $mail->Port= '587';
+
+    $mail_server->From = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // The FROM field, the address sending the email 
+    $mail_server->FromName = 'Pedido de Informações'; // The NAME field which will be displayed on arrival by the email client
+    $mail_server->addAddress($email);     // Recipient's email address and optionally a name to identify him
+    $mail_server->isHTML(true);
+
+$mail_server->Subject = "Pedido de Informações - Cliente";
+$mail_server->Body = $email_body_client;
+$mail_server->send();
 
 }
 

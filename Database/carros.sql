@@ -89,9 +89,6 @@ CREATE TABLE `comentarios` (
   `activo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `comentarios`
---
 
 INSERT INTO `comentarios` (`id_comentario`, `titulo`, `nome_pessoa`, `data`, `descricao`, `activo`) VALUES
 (4, 'Supra RZ', 24, 1559952000, 'manel', 1),
@@ -116,9 +113,6 @@ CREATE TABLE `companhia` (
   `nif` varchar(12) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `companhia`
---
 
 INSERT INTO `companhia` (`id`, `nome`, `logo`, `morada`, `cod_postal`, `tel`, `tlm`, `email`, `site`, `nif`) VALUES
 (1, 'ToyotaCarsRental', 'upload/logo1.png', 'Estrada Sao Caetano', '8100-123 Loule', '289150167', '914564564', 'r.peleira@hotmail.com', 'toyotacarsrental.com', '123456789');

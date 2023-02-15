@@ -1,11 +1,7 @@
 <?php
 
-define('ROOTDIR', dirname(__FILE__));
-
 session_start();
 
-    require ROOTDIR . "/request/nocsrf.php";
-    $token = NoCSRF::generate( 'csrf_token' );
 
 ?>
 
@@ -69,7 +65,6 @@ session_start();
 <div class="freeform w3-col l12">
     <span  title="Periodo para validar os dados são 4 minutos, se expirar tem que actualizar a página (tecla F5)" class="w3-center w3-large">Login de Administracao</span>
     <form class="form-signin">
-      <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
       <p><input readonly title="Insira Utilizador" class="w3-input w3-padding-8 w3-border" type="text" id="utilizador" placeholder="Utilizador *" name="utilizador" autofocus></p>
       <p><input readonly title="Insira Password" class="w3-input w3-padding-8 w3-border" type="password" id="password" placeholder="Password *" name="password"></p>
       

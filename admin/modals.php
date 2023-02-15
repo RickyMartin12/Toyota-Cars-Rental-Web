@@ -452,7 +452,7 @@ opacity:1;
 
                     
                 <div class="modal-footer">
-                	 <p style='text-align:center; margin:0;'><img src="admin/definitions/upload/logo1.png" class="logo-nav" style="width:68px;"></p>  
+                	 <p style='text-align:center; margin:0;'><img src="../admin/definitions/upload/logo1.png" class="logo-nav" style="width:68px;"></p>  
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"> </i><font class="hidden-xs"> Cancelar</font></button>
                     <button title="Guardar as alterações do serviço" type="button" class="btn btn-success" id="adicionar_reserva"> <span class="glyphicon glyphicon-save-file"></span><font class="hidden-xs"> Guardar</font></button>
                 </div>

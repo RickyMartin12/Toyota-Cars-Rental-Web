@@ -267,7 +267,7 @@ function Listarcarros()
         { data: "kms" },
         { data: "img", render: function (data, type, full)
         {
-            return '<img class="img-responsive" height="100%" width="100%" src="/carros_toyota_reserva/admin/definitions/upload/'+data+'"/>';
+            return '<img class="img-responsive" height="100%" width="100%" src="/admin/definitions/upload/'+data+'"/>';
         }}
         
       ],
@@ -592,7 +592,7 @@ bootbox.dialog({
         $("#preco_value").val(arr.preco);
         $("#kms_value").val(arr.kms);
 
-        $("#logo_img").html('<img src="/carros_toyota_reserva/admin/definitions/upload/'+arr.img+'" class="img-responsive"><br><input type="hidden" id="img_tmp" value="'+arr.img+'" >');
+        $("#logo_img").html('<img src="/admin/definitions/upload/'+arr.img+'" class="img-responsive"><br><input type="hidden" id="img_tmp" value="'+arr.img+'" >');
 
         carro_info.modal('show');
 
@@ -717,7 +717,7 @@ bootbox.dialog({
       data['nome_carro'] = $("#no_value").val();
       data['preco'] = $("#preco_value").val();
       data['kms'] = $("#kms_value").val();
-      data['img'] = '<img class="img-responsive" height="100%" width="100%" src="/carros_toyota_reserva/admin/definitions/upload/'+imagem+'"/>';
+      data['img'] = '<img class="img-responsive" height="100%" width="100%" src="/admin/definitions/upload/'+imagem+'"/>';
 
       table.row("#"+vl ).data(data).draw(false);
 

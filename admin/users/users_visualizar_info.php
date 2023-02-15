@@ -20,6 +20,8 @@
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/select2.full.min.js"></script>
 <script src="js/bootstrap-switch.min.js"></script>
+<script src="js/storageInfo.js"></script>
+
 
 
 
@@ -51,13 +53,13 @@
       for(i=0;i<arr.length;i++)
       {
 
-        nome = "'"+arr[i].nome_utilizador+"'";
+        nome = "'"+arr[i].nome+"'";
         console.log(nome);
         id = "'"+arr[i].id+"'";
           
           
           
-        s += '<tr class="action-users-'+arr[i].id+'"><td scope="row"><input type="text" value="'+arr[i].nome_utilizador+'" id="col-1-'+arr[i].id+'" style="display: none" class="frm-item form-control"/><font class="font-1-'+arr[i].id+'" style="color: #000">'+arr[i].nome_utilizador+'</font></td><td><input type="password" style="display: none" id="col-2-'+arr[i].id+'" class="frm-item form-control" placeholder="******""><font class="font-2-'+arr[i].id+'" style="color: #000"> ******* </font></td><td><input type="text" style="display: none" id="col-3-'+arr[i].id+'" class="frm-item form-control" value="'+arr[i].email+'"><font class="font-3-'+arr[i].id+'" style="color: #000">'+arr[i].email+'</font></td><td><select class="form-control" style="display: none" id="col-4-'+arr[i].id+'" onchange="changePermission('+arr[i].id+')"><option value="'+arr[i].tipo+'">'+arr[i].tipo+'</option><option value="Gestor">Gestor</option><option value="Administrator">Administrator</option><option value="GestorPlus">GestorPlus</option><option value="SuperUser">SuperUser</option></select><font class="font-4-'+arr[i].id+'" style="color: #000">'+arr[i].tipo+'</font></td><td><input type="text" readonly value="'+arr[i].privilegios+'" id="col-5-'+arr[i].id+'" style="display: none" class="frm-item form-control"/><font class="font-5-'+arr[i].id+'" style="color: #000">'+arr[i].privilegios+'</font></td><td id="action-'+arr[i].id+'" style="width:80px;"><button title="Editar Utilizador - '+arr[i].id+'" class="btn btn-info btn-sm" onclick="editUsersFilters('+arr[i].id+')"><span class="glyphicon glyphicon-edit"></span></button>&nbsp;&nbsp;<button title="Apagar Operador" class="btn btn-danger btn-sm" onclick="confirmDeleteUsername('+id+','+nome+')"><span class="glyphicon glyphicon-trash"></span></button></td></tr>';
+        s += '<tr class="action-users-'+arr[i].id+'"><td scope="row"><input type="text" value="'+arr[i].nome+'" id="col-1-'+arr[i].id+'" style="display: none" class="frm-item form-control"/><font class="font-1-'+arr[i].id+'" style="color: #000">'+arr[i].nome+'</font></td><td><input type="password" style="display: none" id="col-2-'+arr[i].id+'" class="frm-item form-control" placeholder="******""><font class="font-2-'+arr[i].id+'" style="color: #000"> ******* </font></td><td><input type="text" style="display: none" id="col-3-'+arr[i].id+'" class="frm-item form-control" value="'+arr[i].email+'"><font class="font-3-'+arr[i].id+'" style="color: #000">'+arr[i].email+'</font></td><td><select class="form-control" style="display: none" id="col-4-'+arr[i].id+'" onchange="changePermission('+arr[i].id+')"><option value="'+arr[i].tipo+'">'+arr[i].tipo+'</option><option value="Gestor">Gestor</option><option value="Administrator">Administrator</option><option value="GestorPlus">GestorPlus</option><option value="SuperUser">SuperUser</option></select><font class="font-4-'+arr[i].id+'" style="color: #000">'+arr[i].tipo+'</font></td><td><input type="text" readonly value="'+arr[i].privilegios+'" id="col-5-'+arr[i].id+'" style="display: none" class="frm-item form-control"/><font class="font-5-'+arr[i].id+'" style="color: #000">'+arr[i].privilegios+'</font></td><td id="action-'+arr[i].id+'" style="width:80px;"><button title="Editar Utilizador - '+arr[i].id+'" class="btn btn-info btn-sm" onclick="editUsersFilters('+arr[i].id+')"><span class="glyphicon glyphicon-edit"></span></button>&nbsp;&nbsp;<button title="Apagar Operador" class="btn btn-danger btn-sm" onclick="confirmDeleteUsername('+id+','+nome+')"><span class="glyphicon glyphicon-trash"></span></button></td></tr>';
 
           
       }  

@@ -1,12 +1,25 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/admin/connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
-$img1 = $_SERVER['DOCUMENT_ROOT'].'/carros_toyota_reserva/logo/toyotaCarsRental.png';
-$img_title = $_SERVER['DOCUMENT_ROOT'].'/carros_toyota_reserva/admin/definitions/upload/logo1.png';
-$img_reserva = $_SERVER['DOCUMENT_ROOT'].'/carros_toyota_reserva/icons/agenda.svg';
-$img_logo = $_SERVER['DOCUMENT_ROOT'].'/carros_toyota_reserva/icons/user.png';
-$img_res = $_SERVER['DOCUMENT_ROOT'].'/carros_toyota_reserva/icons/open-book.png';
-$img_com = $_SERVER['DOCUMENT_ROOT'].'/carros_toyota_reserva/icons/com.png';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/TCPDF/tcpdf.php";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require_once $_SERVER['DOCUMENT_ROOT'] .  "/PHPmailer/vendor/autoload.php";
+
+
+$img = $_SERVER['DOCUMENT_ROOT']."/logo/toyota.jpg";
+
+$agenda = $_SERVER['DOCUMENT_ROOT']."/icons/agenda.jpg";
+
+$comment = $_SERVER['DOCUMENT_ROOT']."/icons/comment.jpg";
+
+$open_book = $_SERVER['DOCUMENT_ROOT']."/icons/open_book.jpg";
+
+$user = $_SERVER['DOCUMENT_ROOT']."/icons/user.jpg";
+
 
 switch ($_POST['action']){
 
@@ -16,10 +29,6 @@ switch ($_POST['action']){
     // NIF
 
     $nome = $_POST['nome'];
-    
-    $var = "";
-    
-     
       $obter_clientes=" SELECT id FROM carros WHERE nome_carro = '$nome' LIMIT 1";
         $result = mysqli_query($conn, $obter_clientes);
         while($obj = mysqli_fetch_object($result)) 
@@ -56,21 +65,41 @@ switch ($_POST['action']){
 
     $sql ="UPDATE reserva SET nome = '$nome', pais = '$pais', email = '$email', telefone = $telefone, data_reserva = $data_r, hora_reserva = $hrs, carro = $carro_id, observacoes = '$observacao' WHERE id = $id";
 
+    $result = mysqli_query($conn,$sql);
+    if ($result)
+    {
+        echo 1;
+    }
+        
+    else  
+    {
+        echo 0;
+    }
+
+    // create new PDF document
+    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+    // set document information
+    $pdf->SetCreator(PDF_CREATOR);
+
+    // set font
+    $pdf->SetFont('dejavusans', '', 10);
+
+    // add a page
+    $pdf->AddPage();
 
 
     $html = '
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <style>
 .title-black-white {
-    background: RGB(12,12,12);
-    color: #FFF!important;
+    background-color: #222;
+    color: #FFF;
 }
 .right {
     float: right;
     width: 68px;
-    position: absolute;
+    position: relative;
     padding: 10px;
   }
   .botm
@@ -79,123 +108,119 @@ switch ($_POST['action']){
   }
   .center {
     display: block;
-    margin-left: 280px;
-    margin-right: 280px;
-    right: 100px;
+  float: right;
+  width: 100px;
   }
   .line-bord {
     border: 1px solid RGB(12,12,12);
 }
 .mylabel {
     color: #333;
-    background: #FFC107 !important;
-}
-.align_div {
-    margin-bottom: 15px;
+    background-color: #FFC107;
+	font-weight: bold;
+	font-size: 14px;
 }
 .w3-padding-8 {
-    padding-top: 8px!important;
-    padding-bottom: 8px!important;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 .w3-card-2, .w3-example {
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .bolder
 {
     font-weight:bold;
+	
+}
+.modal-title
+{
+	font-size: 15px;
 }
 </style>
 
-<img src="'.$img1.'" class="center">
-<div class="botm"></div>
+<br>
+
+<br>
+<table border="0" cellspacing="3" cellpadding="4">
+    <tr>
+        <th align="center"><img src="'.$img .'" class="center"></th>  
+    </tr>
+
+</table>
+
+
+
+
+
 <h3 style="text-align: center;" class="bolder"> Toyota Cars Rental - Conteudo da Reserva '.$id.'</h3>
 <div class="botm"></div>
 <div class="line-bord">
-<img src="'.$img_title.'" class="right">
 <div class="modal-header title-black-white">
-    <h4 class="modal-title bolder" style="color: #fff;"><img src="'.$img_reserva.'" class="img-responsive"> Reserva Numero '.$id.'</h4> 
-</div>
-<div class="form-horizontal" id="form">
-<div class="panel-body" style="padding: 16px; margin-top: -10px;">
-<h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
-<img src="'.$img_logo.'" class="img-responsive">&nbsp;&nbsp;Detalhes Pessoais
-</h5>
-<div class="container">
-<div class="row">
+    <div class="modal-title bolder" >
+	
+	<table border="0">
+		<tr>
+			<th align="left"><img src="'.$agenda .'" width="50">&nbsp;&nbsp;Reserva Numero '.$id.'</th>
+			<th align="right"><img src="'.$img .'" class="right"></th>  
+		</tr>
 
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Nome da Pessoa:</font> '.$nome.'
-</div>
+	</table>
+	
+	</div> 
 </div>
 
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder" >Pais:</font> '.$pais.'
-</div>
-</div>
-
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder" >Email:</font> '.$email.'
-</div>
-</div>
-
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder" >Telefone:</font> '.$telefone.'
-</div>
-</div>
-
-<h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
-<img src="'.$img_res.'" class="img-responsive">&nbsp;&nbsp;Marcação da Reserva
+<h5 class="mylabel"> 
+&nbsp;&nbsp;<img src="'.$user.'" class="img-responsive" width="20">&nbsp;&nbsp;&nbsp;Detalhes Pessoais
 </h5>
 
-<div class="container">
-<div class="row">
-
+<br>
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Data de Reserva:</font> '.$data_reserva.'
-</div>
+&nbsp;&nbsp;<font class="bolder">&nbsp;&nbsp;Nome da Pessoa:</font> '.$nome.'
 </div>
 
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Hora de Reserva:</font> '.$hora_reserva.'
+<font class="bolder" >&nbsp;&nbsp;&nbsp;&nbsp;Pais:</font> '.$pais.'
 </div>
-</div>
-
 
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Nome do Carro:</font> '.$carro_nome.'
-</div>
+<font class="bolder" >&nbsp;&nbsp;&nbsp;&nbsp;Email:</font> '.$email.'
 </div>
 
-</div>
+<div class="col-xs-12 col-md-6">
+<font class="bolder" >&nbsp;&nbsp;&nbsp;&nbsp;Telefone:</font> '.$telefone.'
 </div>
 
 <h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
-<img src="'.$img_com.'" class="img-responsive">&nbsp;&nbsp;Comentarios Finais
+&nbsp;&nbsp;<img src="'.$open_book.'" class="img-responsive" width="20">&nbsp;&nbsp;Marcação da Reserva
 </h5>
 
-<div class="container">
-<div class="row">
+<br>
+<div class="col-xs-12 col-md-6">
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Data de Reserva:</font> '.$data_reserva.'
+</div>
 
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Comentarios Finais:</font> '.$observacao.'
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Hora de Reserva:</font> '.$hora_reserva.'
 </div>
+
+<div class="col-xs-12 col-md-6">
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Nome do Carro:</font> '.$carro_nome.'
 </div>
 
 
-</div>
-</div>
+<br>
+<h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
+&nbsp;&nbsp;<img src="'.$comment.'" class="img-responsive" width="20">&nbsp;&nbsp;Comentarios Finais
+</h5>
+
+<div class="col-xs-12 col-md-6">
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Comentarios Finais:</font> '.$observacao.'
+
+
 
 
 </div>
-</div>
+
 
 
 
@@ -215,76 +240,56 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
 ';
 
 
-    
-    
 
-    
-
-
-    $result = mysqli_query($conn,$sql);
-    if ($result)
-    {
-        
-
-        
-
-        echo 1;
+// output the HTML content
+$pdf->writeHTML($html, true, false, true, false, '');
 
 
 
-
-    }
-        
-    else  
-    {
-        echo 0;
-    }
+// ---------------------------------------------------------
 
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/mpdf/mpdf.php';
+$filename = "Reserva - ".$id." .pdf";
+//Close and output PDF document
+$attachment = $pdf->Output($filename,'S');
 
-    $mpdf=new mPDF();
-    $mpdf->WriteHTML($html);
 
-    $pdfdoc = $mpdf->Output("", "S");
-    $attachment = chunk_split(base64_encode($pdfdoc));
-
-    $separator = md5(time());
-    $eol = PHP_EOL;
-
-    $attachment = chunk_split(base64_encode($pdfdoc));
-    $filename = "Reserva - ".$id." .pdf";
-
-    $to = "r.peleira@hotmail.com";
-
-        $headers  = "From: ".$to.$eol;
-        $headers .= "MIME-Version: 1.0".$eol; 
-        $headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
-
-        $info_client =
+    $reserva_edit =
         "<div style='width:95%; margin-left:2.5%;'>
         <h4>Foi Mandado o seguinte PDF as informacoes da reserva alterada $nome com o email $email</h4>
         </div>";
 
-        $info_c = utf8_decode("Boas $email, os detalhes foram enviados com sucesso");
 
-        $body_c = "--".$separator.$eol;
-        $body_c .= "Content-Transfer-Encoding: 7bit".$eol.$eol;
-        $body_c .= $eol;
 
-        $body_c .= "--".$separator.$eol;
-        $body_c .= "Content-Type: text/html; charset=\"UTF-8\"".$eol;
-        $body_c .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-        $body_c .= $info_client.$eol;
-        $body_c .= "--".$separator.$eol;
-        $body_c .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; 
-        $body_c .= "Content-Transfer-Encoding: base64".$eol;
-        $body_c .= "Content-Disposition: attachment".$eol.$eol;
-        $body_c .= $attachment.$eol;
-        $body_c .= "--".$separator."--";
 
-        mail($email,$info_c,$body_c,$headers);
-        
+
+
+
+        $mail = new PHPMailer(true);
+        $mail->CharSet = 'UTF-8';
+            $mail->isSMTP();  // Set mailer to use SMTP
+            $mail->Host = 'smtp.mailgun.org';  // Specify mailgun SMTP servers
+            $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Username = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // SMTP username from https://mailgun.com/cp/domains
+            $mail->Password = '2d14e569b59a0eabd9f3617002be0dda-73e57fef-1b7ca089'; // SMTP password from https://mailgun.com/cp/domains
+            $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+                    $mail->Port= '587';
+
+            $mail->From = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // The FROM field, the address sending the email 
+            $mail->FromName = "Detalhes da Reserva número ".$id; // The NAME field which will be displayed on arrival by the email client
+            $mail->addAddress($email);     // Recipient's email address and optionally a name to identify him
+            $mail->isHTML(true);
+
+        $mail->Subject = "Boas $email, os detalhes foram enviados com sucesso";
+        $mail->Body = $reserva_edit;
+        $mail->AltBody = "Detalhes da Reserva número ".$id;
+        $mail->AddStringAttachment($attachment, $filename, 'base64', 'application/pdf');
+        $mail->send();
+
+
+
+
+
 
     
 
@@ -305,6 +310,7 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
     break;
 
     case '4':
+
 
     $err='';
 
@@ -385,11 +391,9 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
     }
     
     // Hora de Reserva
-
-    $horas = trim($_POST['hora_reserva']); 
     
-    if ($horas == ""){
-      
+    if ($_POST['hora_reserva']){
+      $horas = trim($_POST['hora_reserva']); 
       $hrs = strtotime($date_array[2].'-'.$date_array[1].'-'.$date_array[0].' '.$horas);
     }
     else
@@ -423,13 +427,6 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
         {
             $response = 1; 
             $last_id = mysqli_insert_id($conn);
-
-            
-
-
-
-
-
         }  
         else 
         {
@@ -440,24 +437,34 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
         $r=array('error'=>'','success' => $response,'id' => $last_id, 'email' => $email);
         echo json_encode($r);
 
-        $sql = mysqli_query($conn, "SELECT nome_carro FROM carros WHERE id='$carro_id'");
+        $sql_nome_carro = mysqli_query($conn, "SELECT nome_carro FROM carros WHERE id='$carro_id'");
 
-        $exibe = mysqli_fetch_assoc($sql);
+        $exibe = mysqli_fetch_assoc($sql_nome_carro);
         $carro_nome = $exibe['nome_carro']; 
-        
+
+        // create new PDF document
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        // set document information
+        $pdf->SetCreator(PDF_CREATOR);
+
+        // set font
+        $pdf->SetFont('dejavusans', '', 10);
+
+        // add a page
+        $pdf->AddPage();
+
         $html = '
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <style>
 .title-black-white {
-    background: RGB(12,12,12);
-    color: #FFF!important;
+    background-color: #222;
+    color: #FFF;
 }
 .right {
     float: right;
     width: 68px;
-    position: absolute;
+    position: relative;
     padding: 10px;
   }
   .botm
@@ -466,123 +473,119 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
   }
   .center {
     display: block;
-    margin-left: 280px;
-    margin-right: 280px;
-    right: 100px;
+  float: right;
+  width: 100px;
   }
   .line-bord {
     border: 1px solid RGB(12,12,12);
 }
 .mylabel {
     color: #333;
-    background: #FFC107 !important;
-}
-.align_div {
-    margin-bottom: 15px;
+    background-color: #FFC107;
+	font-weight: bold;
+	font-size: 14px;
 }
 .w3-padding-8 {
-    padding-top: 8px!important;
-    padding-bottom: 8px!important;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 .w3-card-2, .w3-example {
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .bolder
 {
     font-weight:bold;
+	
+}
+.modal-title
+{
+	font-size: 15px;
 }
 </style>
 
-<img src="'.$img1.'" class="center">
-<div class="botm"></div>
+<br>
+
+<br>
+<table border="0" cellspacing="3" cellpadding="4">
+    <tr>
+        <th align="center"><img src="'.$img .'" class="center"></th>  
+    </tr>
+
+</table>
+
+
+
+
+
 <h3 style="text-align: center;" class="bolder"> Toyota Cars Rental - Conteudo da Reserva '.$last_id.'</h3>
 <div class="botm"></div>
 <div class="line-bord">
-<img src="'.$img_title.'" class="right">
 <div class="modal-header title-black-white">
-    <h4 class="modal-title bolder" style="color: #fff;"><img src="'.$img_reserva.'" class="img-responsive"> Reserva Numero '.$last_id.'</h4> 
-</div>
-<div class="form-horizontal" id="form">
-<div class="panel-body" style="padding: 16px; margin-top: -10px;">
-<h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
-<img src="'.$img_logo.'" class="img-responsive">&nbsp;&nbsp;Detalhes Pessoais
-</h5>
-<div class="container">
-<div class="row">
+    <div class="modal-title bolder" >
+	
+	<table border="0">
+		<tr>
+			<th align="left"><img src="'.$agenda .'" width="50">&nbsp;&nbsp;Reserva Numero '.$last_id.'</th>
+			<th align="right"><img src="'.$img .'" class="right"></th>  
+		</tr>
 
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Nome da Pessoa:</font> '.$nome.'
-</div>
+	</table>
+	
+	</div> 
 </div>
 
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder" >Pais:</font> '.$pais.'
-</div>
-</div>
-
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder" >Email:</font> '.$email.'
-</div>
-</div>
-
-<div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder" >Telefone:</font> '.$telefone.'
-</div>
-</div>
-
-<h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
-<img src="'.$img_res.'" class="img-responsive">&nbsp;&nbsp;Marcação da Reserva
+<h5 class="mylabel"> 
+&nbsp;&nbsp;<img src="'.$user.'" class="img-responsive" width="20">&nbsp;&nbsp;&nbsp;Detalhes Pessoais
 </h5>
 
-<div class="container">
-<div class="row">
-
+<br>
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Data de Reserva:</font> '.$d.'
-</div>
+&nbsp;&nbsp;<font class="bolder">&nbsp;&nbsp;Nome da Pessoa:</font> '.$nome.'
 </div>
 
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Hora de Reserva:</font> '.$horas.'
+<font class="bolder" >&nbsp;&nbsp;&nbsp;&nbsp;Pais:</font> '.$pais.'
 </div>
-</div>
-
 
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Nome do Carro:</font> '.$carro_nome.'
-</div>
+<font class="bolder" >&nbsp;&nbsp;&nbsp;&nbsp;Email:</font> '.$email.'
 </div>
 
-</div>
+<div class="col-xs-12 col-md-6">
+<font class="bolder" >&nbsp;&nbsp;&nbsp;&nbsp;Telefone:</font> '.$telefone.'
 </div>
 
 <h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
-<img src="'.$img_com.'" class="img-responsive">&nbsp;&nbsp;Comentarios Finais
+&nbsp;&nbsp;<img src="'.$open_book.'" class="img-responsive" width="20">&nbsp;&nbsp;Marcação da Reserva
 </h5>
 
-<div class="container">
-<div class="row">
+<br>
+<div class="col-xs-12 col-md-6">
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Data de Reserva:</font> '.$d.'
+</div>
 
 <div class="col-xs-12 col-md-6">
-<div class="form-group">
-<font class="bolder">Comentarios Finais:</font> '.$observacao.'
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Hora de Reserva:</font> '.$horas.'
 </div>
+
+<div class="col-xs-12 col-md-6">
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Nome do Carro:</font> '.$carro_nome.'
 </div>
 
 
-</div>
-</div>
+<br>
+<h5 class="col-xs-12 mylabel w3-padding-8 w3-card-2 align_div bolder"> 
+&nbsp;&nbsp;<img src="'.$comment.'" class="img-responsive" width="20">&nbsp;&nbsp;Comentarios Finais
+</h5>
+
+<div class="col-xs-12 col-md-6">
+<font class="bolder">&nbsp;&nbsp;&nbsp;&nbsp;Comentarios Finais:</font> '.$observacao.'
+
+
 
 
 </div>
-</div>
+
 
 
 
@@ -601,51 +604,49 @@ Ricardo Peleira - Gerente da Toyota Rental Cars LDA
 
 ';
 
-include $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/mpdf/mpdf.php';
 
-    $mpdf=new mPDF();
-    $mpdf->WriteHTML($html);
 
-    $pdfdoc = $mpdf->Output("", "S");
-    $attachment = chunk_split(base64_encode($pdfdoc));
+// output the HTML content
+$pdf->writeHTML($html, true, false, true, false, '');
 
-    $separator = md5(time());
-    $eol = PHP_EOL;
 
-    $attachment = chunk_split(base64_encode($pdfdoc));
-    $filename = "Reserva - ".$last_id." .pdf";
 
-    $to = "r.peleira@hotmail.com";
+// ---------------------------------------------------------
 
-        $headers  = "From: ".$to.$eol;
-        $headers .= "MIME-Version: 1.0".$eol; 
-        $headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
 
-        $info_client =
-        "<div style='width:95%; margin-left:2.5%;'>
-        <h4>Foi Mandado o seguinte PDF as informacoes da reserva alterada $nome com o email $email</h4>
-        </div>";
+$filename = "Reserva - ".$last_id." .pdf";
+//Close and output PDF document
+$attachment = $pdf->Output($filename,'S');
 
-        $info_c = utf8_decode("Boas $email, os detalhes foram enviados com sucesso");
 
-        $body_c = "--".$separator.$eol;
-        $body_c .= "Content-Transfer-Encoding: 7bit".$eol.$eol;
-        $body_c .= $eol;
 
-        $body_c .= "--".$separator.$eol;
-        $body_c .= "Content-Type: text/html; charset=\"UTF-8\"".$eol;
-        $body_c .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-        $body_c .= $info_client.$eol;
-        $body_c .= "--".$separator.$eol;
-        $body_c .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; 
-        $body_c .= "Content-Transfer-Encoding: base64".$eol;
-        $body_c .= "Content-Disposition: attachment".$eol.$eol;
-        $body_c .= $attachment.$eol;
-        $body_c .= "--".$separator."--";
 
-        mail($email,$info_c,$body_c,$headers);
-        
+        $body_text = '<div style="width:95%; margin-left:2.5%;">
+        <h4>Foi adicionado as seguintes informacoes da reserva '.$nome.' com o email '.$email.'</h4>
+        </div>';
 
+
+
+        $mail = new PHPMailer(true);
+        $mail->CharSet = 'UTF-8';
+            $mail->isSMTP();  // Set mailer to use SMTP
+            $mail->Host = 'smtp.mailgun.org';  // Specify mailgun SMTP servers
+            $mail->SMTPAuth = true; // Enable SMTP authentication
+            $mail->Username = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // SMTP username from https://mailgun.com/cp/domains
+            $mail->Password = '2d14e569b59a0eabd9f3617002be0dda-73e57fef-1b7ca089'; // SMTP password from https://mailgun.com/cp/domains
+            $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+                    $mail->Port= '587';
+
+            $mail->From = 'postmaster@sandboxe2313ce239e048f4a30fabd8f01bc24b.mailgun.org'; // The FROM field, the address sending the email 
+            $mail->FromName = "Detalhes da Reserva número ".$last_id; // The NAME field which will be displayed on arrival by the email client
+            $mail->addAddress($email);     // Recipient's email address and optionally a name to identify him
+            $mail->isHTML(true);
+
+        $mail->Subject = "Boas $email, os detalhes foram enviados com sucesso";
+        $mail->Body = $body_text;
+        $mail->AltBody = "Detalhes da Reserva número ".$last_id;
+        $mail->AddStringAttachment($attachment, $filename, 'base64', 'application/pdf');
+        $mail->send();
         
     }
     else
@@ -653,7 +654,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/mpdf/mpdf.php';
         $r = array('error' =>$err, 'success' =>'','id' =>'', 'email' => $email);
         echo json_encode($r);
     }
-
+    
     
 
 

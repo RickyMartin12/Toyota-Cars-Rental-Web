@@ -4,7 +4,7 @@
  
  // DataTables PHP library
  
- include $_SERVER['DOCUMENT_ROOT'] . "/carros_toyota_reserva/admin/php/DataTables.php";
+ include $_SERVER['DOCUMENT_ROOT'] . "/admin/php/DataTables.php";
   
  use
  DataTables\Database,

@@ -253,7 +253,7 @@ mostrarComentarios ();
       
   dataValue='&action=1&nome='+vl1;
   //console.log(dataValue);
-    $.ajax({ url:'admin/reserva/action/action_reserva.php',
+    $.ajax({ url:'../admin/reserva/action/action_reserva.php',
     data:dataValue,
     type:'POST', 
     cache:false,
@@ -296,7 +296,7 @@ function mostrarReservaCarros ()
 	var s = '';
   setTimeout(function(){ 
   dataValue='action=6';
-    $.ajax({ url:'../carros_toyota_reserva/admin/reserva/action/action_reserva.php',
+    $.ajax({ url:'../admin/reserva/action/action_reserva.php',
     data:dataValue,
     type:'POST', 
     cache:false,
@@ -370,7 +370,7 @@ $("#adicionar_reserva").on ('click', function(e)
 	dataValue='action=4&nome='+$("#nome_reserva").val()+'&pais='+$("#pais").val()+'&email='+$("#email").val()+'&telefone='+$("#telefone").val()+'&data_reserva='+$("#data_reserva").val()+'&hora_reserva='+$("#hora_reserva").val()+'&carro_id='+$("#id_carro_obs").val()+'&observacao='+$("#observacao").val();
 	console.log(dataValue);
 
-	$.ajax({ url:'../carros_toyota_reserva/admin/reserva/action/action_reserva.php',
+	$.ajax({ url:'../admin/reserva/action/action_reserva.php',
     data:dataValue,
     type:'POST', 
 
@@ -438,7 +438,7 @@ $("#addit_comentario").on ('click', function(e)
 	dataValue='action=5&titulo='+$("#titulo").val()+'&username='+$("#username_comentario").val()+'&data_comentario='+$("#data_comentario_value").val()+'&descricao='+$("#descricao_value").val();
 	console.log(dataValue);
 
-	$.ajax({ url:'../carros_toyota_reserva/admin/comentario/action/action_comentario.php',
+	$.ajax({ url:'../admin/comentario/action/action_comentario.php',
     data:dataValue,
     type:'POST', 
 
@@ -507,7 +507,7 @@ function mostrarComentarios ()
 	var s = '';
   setTimeout(function(){ 
   dataValue='action=6';
-    $.ajax({ url:'../carros_toyota_reserva/admin/comentario/action/action_comentario.php',
+    $.ajax({ url:'../admin/comentario/action/action_comentario.php',
     data:dataValue,
     type:'POST', 
     cache:false,
@@ -531,7 +531,7 @@ function mostrarComentarios ()
             for(i=0;i<arr.length;i++)
             {
 								titulo = arr[i].titulo;
-								nome = arr[i].nome_utilizador;
+								nome = arr[i].nome;
 								descricao = arr[i].descricao;
 								data_comentario = moment(arr[i].data*1000).format("DD/MM/YYYY");
 	

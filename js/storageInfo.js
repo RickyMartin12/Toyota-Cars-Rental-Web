@@ -1,6 +1,6 @@
 function GetCarroNome(){
   dataValue='action=5';
-  $.ajax({ url:'admin/definitions/action_definitions.php',
+  $.ajax({ url:'../admin/definitions/action_definitions.php',
     data:dataValue,
     type:'POST', 
     success:function(data){
@@ -12,7 +12,7 @@ function GetCarroNome(){
 
 function GetModeloNome(){
   dataValue='action=6';
-  $.ajax({ url:'admin/definitions/action_definitions.php',
+  $.ajax({ url:'../admin/definitions/action_definitions.php',
     data:dataValue,
     type:'POST', 
     success:function(data){
@@ -25,7 +25,7 @@ function GetModeloNome(){
 
 function GetIDModelo(){
   dataValue='action=7';
-  $.ajax({ url:'admin/definitions/action_definitions.php',
+  $.ajax({ url:'../admin/definitions/action_definitions.php',
     data:dataValue,
     type:'POST', 
     success:function(data){
@@ -37,7 +37,7 @@ function GetIDModelo(){
 
 function GetIDUsername(){
   dataValue='action=8';
-  $.ajax({ url:'admin/definitions/action_definitions.php',
+  $.ajax({ url:'../admin/definitions/action_definitions.php',
     data:dataValue,
     type:'POST', 
     success:function(data){
@@ -49,7 +49,7 @@ function GetIDUsername(){
 
 function GetTituloComentario(){
   dataValue='action=9';
-  $.ajax({ url:'admin/definitions/action_definitions.php',
+  $.ajax({ url:'../admin/definitions/action_definitions.php',
     data:dataValue,
     type:'POST', 
     success:function(data){

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/admin/connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 $err='';
 

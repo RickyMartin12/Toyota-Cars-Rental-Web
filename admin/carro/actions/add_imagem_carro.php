@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/carros_toyota_reserva/admin/connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 
 $err='';
@@ -8,7 +8,7 @@ $err='';
 if (isset($_FILES['file'])) 
 {
     $filename = $_FILES["file"]["name"];
-    $uploaddir = $_SERVER['DOCUMENT_ROOT']  . '/carros_toyota_reserva/admin/definitions/upload/';
+    $uploaddir = $_SERVER['DOCUMENT_ROOT']  . '/admin/definitions/upload/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) 

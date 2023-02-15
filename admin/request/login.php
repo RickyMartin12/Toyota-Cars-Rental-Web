@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
     session_start();
 
           $err='';
@@ -23,14 +23,14 @@
      {
           $utilizador = $_POST['utilizador'];
           $password = md5(trim($_POST['password']));
-          $sql = "SELECT * FROM admins WHERE nome_utilizador='$utilizador' AND pass='$password'";
+          $sql = "SELECT * FROM admins WHERE nome='$utilizador' AND pass='$password'";
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_assoc($result);
           $rowcount=mysqli_num_rows($result);
           if ($rowcount == 1)
           {
             $_SESSION['pr_uid']=$row['id'];
-            $_SESSION['usern']=$row['nome_utilizador'];
+            $_SESSION['usern']=$row['nome'];
             $_SESSION['privilegios'] = $row['tipo'];
             $_SESSION['access'] = $row['privilegios'];
             $s = $_SESSION['privilegios'];
@@ -69,7 +69,7 @@
 
             
 
-            $success='../carros_toyota_reserva/admin/index.php';
+            $success='../admin/index.php';
             $arr = array('error'=>'', 'id'=>$_SESSION['pr_uid'], 'success'=>$success);
 
           }

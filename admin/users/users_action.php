@@ -1,7 +1,7 @@
 <?php
 
 
-require_once '../connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 switch ($_POST['action']){
 
@@ -10,8 +10,6 @@ switch ($_POST['action']){
 
 case '1':
 $obter_comp=" SELECT * FROM admins WHERE 1";
-
-$var = "";
 
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) 
@@ -51,7 +49,7 @@ case '3':
     
     $success='';
     
-    $query=" SELECT nome_utilizador FROM admins WHERE nome_utilizador = '$nome'";
+    $query=" SELECT nome FROM admins WHERE nome = '$nome'";
     	$result = mysqli_query($conn,$query);
     	$rowCount = mysqli_num_rows($result);
     	echo $rowCount;
@@ -65,11 +63,11 @@ case '3':
     	    
     	 if ($_POST['col_2_'.$id] == '')
     	 {
-    	     $query_upd=" UPDATE admins SET nome_utilizador='$nome', privilegios='$privilegios', email= '$email', tipo='$tipo' WHERE id = $id ";
+    	     $query_upd=" UPDATE admins SET nome='$nome', privilegios='$privilegios', email= '$email', tipo='$tipo' WHERE id = $id ";
     	 }
     	 else
     	 {
-    	     $query_upd=" UPDATE admins SET nome_utilizador='$nome', pass ='$pass', privilegios='$privilegios', email= '$email', tipo='$tipo' WHERE id = $id ";
+    	     $query_upd=" UPDATE admins SET nome='$nome', pass ='$pass', privilegios='$privilegios', email= '$email', tipo='$tipo' WHERE id = $id ";
     	 }
      
     	$result_upd = mysqli_query($conn,$query_upd);
@@ -145,7 +143,7 @@ case '6':
 
 $nome = $_POST['nome'];
 
-$sql = mysqli_query($conn, "SELECT email FROM admins WHERE nome_utilizador='$nome'");
+$sql = mysqli_query($conn, "SELECT email FROM admins WHERE nome='$nome'");
 
             $exibe = mysqli_fetch_assoc($sql);
                 $email = $exibe['email'];

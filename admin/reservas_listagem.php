@@ -71,26 +71,6 @@ var date = new Date();
     locale: 'pt', showTodayButton: true, minDate: h, defaultDate: h, widgetPositioning: { horizontal: 'right', vertical: 'bottom' }});
     
 
-// Funcoes da Listagem de Carros
-
-arr_id_titulo_com = JSON.parse(localStorage.getItem("Titulo"));
-        opt6='<option selected value="">Titulo</option>';   
-        for (i=0;i<arr_id_titulo_com.length;i++){
-          opt6 +='<option value="'+arr_id_titulo_com[i].titulo+'">'+arr_id_titulo_com[i].titulo+'</option>';
-        }
-        $('#titulo_find').html(opt6).select2();
-
-
-        arr_carros = JSON.parse(localStorage.getItem("Carro"));
-        console.log(arr_carros);
-        opt7='<option selected value="">Titulo</option>';   
-        for (i=0;i<arr_carros.length;i++){
-          opt7 +='<option value="'+arr_carros[i].nome_carro+'">'+arr_carros[i].nome_carro+'</option>';
-        }
-        $('#car_id_nome').html(opt7).select2();
-
-
-
 function NomeCarroValueById(vl1){
     var link;
   setTimeout(function(){ 
@@ -420,6 +400,13 @@ $('#example4 tbody').on( 'click', '.btn-danger', function () {
   $('#example4 tbody').on( 'click', '.btn-edit', function () {
        arr = table.row($(this).parents('tr')).data();
        $('#reserva_id').html(arr.id);
+       arr_carros = JSON.parse(localStorage.getItem("Carro"));
+        console.log(arr_carros);
+        opt7='<option selected value="">Titulo</option>';   
+        for (i=0;i<arr_carros.length;i++){
+          opt7 +='<option value="'+arr_carros[i].nome_carro+'">'+arr_carros[i].nome_carro+'</option>';
+        }
+        $('#car_id_nome').html(opt7).select2();
        editarLinhaReserva(arr);
 });
 
@@ -427,6 +414,7 @@ $('#example4 tbody').on( 'click', '.btn-danger', function () {
 function editarLinhaReserva(arr)
 {
         var reserva_info = $("#editar_Reserva");
+
         $("#nome_reserva_value").val(arr.nome);
         $("#pais_value").val(arr.pais);
         $("#email_value").val(arr.email);

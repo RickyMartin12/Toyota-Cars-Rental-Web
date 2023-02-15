@@ -1,7 +1,7 @@
 <?php
 
 
-require_once '../connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 switch ($_POST['action']){
 
@@ -15,7 +15,7 @@ echo json_encode($var);
 break;
 
 case '4':
-    	$fields=array('nome','nif','ravt','morada','cod_postal','tel','tlm','email','site');
+    	$fields=array('nome','nif','morada','cod_postal','tel','tlm','email','site');
     	$query='UPDATE companhia SET ';
 		for($i=1;$i<10;$i++){
 			$index= 'col_'.$i.'_'.$_POST['id'];
@@ -58,8 +58,7 @@ echo json_encode($var);
 break;
 
 case '8':
-$obter_comp=" SELECT nome_utilizador FROM admins ORDER BY nome_utilizador ASC";
-
+$obter_comp=" SELECT nome FROM admins ORDER BY nome ASC";
 $result = mysqli_query($conn, $obter_comp);
 while($obj = mysqli_fetch_object($result)) {
 $var[] = $obj;}
