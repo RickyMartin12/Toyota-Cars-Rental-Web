@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+?>
+
+<?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/TCPDF/tcpdf.php";
