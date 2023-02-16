@@ -1,5 +1,9 @@
 <?php
 
+ini_set('upload_max_filesize', '500M');
+ini_set('max_execution_time', 600);
+ini_set('post_max_size', '500M');
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/connect.php';
 
 $id = $_POST['id'];
