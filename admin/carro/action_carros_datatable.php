@@ -13,6 +13,8 @@ DataTables\Database\Result;
 
 
 
+
+
         $RAW_SQL_QUERY="SELECT * FROM carros WHERE 1";        
         $r=$db->sql($RAW_SQL_QUERY)->fetchAll();
 
