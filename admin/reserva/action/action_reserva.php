@@ -275,8 +275,9 @@ $attachment = $pdf->Output($filename,'S');
         $mail->isSMTP();  // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify mailgun SMTP servers
         $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'ricardopeleira16@gmail.com'; // SMTP username from https://mailgun.com/cp/domains
-        $mail->Password = 'npgnxhymkcxeoobc'; // SMTP password from https://mailgun.com/cp/domains
+        $mail->Username = 'ricardomanuelpeleira@gmail.com';
+        // Senha para SMTP authentication
+        $mail->Password = 'qcwrdlcthjenrtln';
         $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
                 $mail->Port= '587';
     
@@ -637,8 +638,9 @@ $attachment = $pdf->Output($filename,'S');
         $mail->isSMTP();  // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify mailgun SMTP servers
         $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'ricardopeleira16@gmail.com'; // SMTP username from https://mailgun.com/cp/domains
-        $mail->Password = 'npgnxhymkcxeoobc'; // SMTP password from https://mailgun.com/cp/domains
+        $mail->Username = 'ricardomanuelpeleira@gmail.com';
+        // Senha para SMTP authentication
+        $mail->Password = 'qcwrdlcthjenrtln';
         $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
                 $mail->Port= '587';
     
